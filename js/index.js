@@ -1,4 +1,4 @@
-const absolutePath = 'https://soumen-18.github.io/ecomm-blog';
+const absolutePath = 'file:///D:/ecomm-blog';
 let allProducts = [];
 
 (function() {
