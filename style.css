@@ -495,6 +495,138 @@ a.cmnBtn {
     color: var(--bs-white);
 }
 
+.cart-page .sectionGap {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+.cart-page table .product-img{
+    width: 90px;
+}
+
+.cart-page table td {
+    border-top: 1px solid #dedede;
+    padding: 12px;
+}
+
+.cart-page table tr:last-child td {
+    border-bottom: 1px solid #dedede;
+}
+
+.cart-page table td:first-child {
+    padding-left: 0;
+}
+
+.cart-page table .quantity-input {
+    max-width: 65px;
+}
+
+.cart-page table td:nth-child(3),
+.cart-page table td:nth-child(5) {
+    width: 120px;
+}
+
+.cart-page table h4 {
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+.cart-page table p {
+    margin: 0;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+.product-summary {
+    padding: 30px;
+    margin: 0;
+    background: #f3f3f3;
+}
+
+.product-summary li {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #dedede;
+}
+
+.product-summary li:last-child {
+    border-bottom: none;
+}
+
+.product-summary li h4 {
+    margin: 0;
+    font-size: 16px;
+    width: 100px;
+}
+
+.product-summary li p {
+    margin: 0;
+    color: #000;
+}
+
+.icon-round-btn {
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+
+.icon-round-btn:hover {
+    background-color: var(--bs-primaryDark);
+    color: var(--bs-white);
+}
+
+.red-btn {
+    background-color: #dc3545;
+    color: var(--bs-white);
+}
+
+.headerCart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 35px 0 25px;
+}
+
+.headerCart a {
+    position: relative;
+}
+
+.headerCart i {
+    color: #000;
+    font-size: 20px;
+}
+
+.headerCart span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background: var(--bs-primaryDark);
+    color: #fff;
+    font-weight: 400;
+    font-size: 13px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    top: 4px;
+    right: -20px;
+}
+
+
+
 
 
 

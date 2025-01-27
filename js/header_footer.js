@@ -50,24 +50,26 @@ const inner_header = `
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
         </ul>
         <div class="d-flex">
-            <form class="form-inline d-flex mr-3">
-                <input class="form-control mr-sm-2" type="text" id="searchBox" placeholder="Search Products">
-                <button class="cmnBtn" type="submit">Search</button>
-            </form>
             <div class="dropdown">
                 <button type="button" class="cmnBtn dropdown-toggle text-capitalize" id="profile-dropdown" data-toggle="dropdown">
                     ${fetch_firstname}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="${absolutePath}/profile.html" class="dropdown-item">Profile</a>
+                    <a href="${absolutePath}/cart.html" class="dropdown-item">Cart</a>
                     <a class="dropdown-item" onclick='logout_func()'>Logout</a>
                 </div>
             </div>
+            <ul class="navbar-nav">
+                <li class="nav-item headerCart">
+                    <a href="${absolutePath}/cart.html">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>26</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 `;
