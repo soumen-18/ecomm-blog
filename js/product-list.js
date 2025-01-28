@@ -62,7 +62,7 @@ function display_products() {
                                 </div>
                             </a>
                         </div>
-                        <button class="cmnBtn" onclick="add_in_cart(${productList[i].id})">Add to cart</button>
+                        <button class="cmnBtn" onclick="add_to_cart(${productList[i].id})">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -71,3 +71,5 @@ function display_products() {
 
 	product_container.innerHTML = items;
 }
+
+

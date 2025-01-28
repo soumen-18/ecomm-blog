@@ -31,8 +31,6 @@ function display_product(fetch_id) {
     // window.location.href = `${absolutePath}/details.html?id=${fetch_id}`;
     window.location.href = `${absolutePath}/details.html`;
 }
-
-function add_in_cart(product_id) {
-    alert('This function will implement soon!');
+function add_to_cart(productId) {
+    handleAddToCart(productId);
 }
-

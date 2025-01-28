@@ -54,7 +54,7 @@ function display_cat_product(products) {
                                 </div>
                             </a>
                         </div>
-                        <button class="cmnBtn" onclick="add_in_cart(${products[i].id})">Add to cart</button>
+                        <button class="cmnBtn" onclick="add_to_cart(${products[i].id})">Add to cart</button>
                     </div>
                 </div>
             </div>
