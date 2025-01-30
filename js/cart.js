@@ -1,4 +1,26 @@
 
+const cartTable = document.getElementById('cart-product-list');
+const fetch_cart_product = JSON.parse(localStorage.getItem('cart')) || [];
+let cart_item_content = '';
+const products = [];
+
+async function fetch_product(item) {
+    try{
+        const fetchItems = await fetch("https://fakestoreapi.com/products");
+        const items = await fetchItems.json();
+        products.push(...items);
+    } catch(error) {
+        console.error('Error fetching products:', error)
+    }
+}
+// Call the function and wait for it to finish
+(async () => {
+    await fetch_product();
+    console.log('Products after fetch:', products);
+})();
+
+
+
 function add_to_cart(product_id) {
     // Get the cart from localStorage or initialize it
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -50,3 +72,35 @@ function update_cart_counter() {
 document.addEventListener('DOMContentLoaded', () => {
     update_cart_counter();
 });
+
+
+// Start to Display cart items in table
+
+for(i = 0; i < fetch_cart_product.length; i++) {
+    cart_item_content+= `
+        <tr>
+            <td>
+                <a href="#">
+                    <img src="./images/blog-1.jpg" class="product-img" />
+                </a>
+            </td>
+            <td>
+                <a href="#">
+                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam expedita odit dolore quia cumque nisi blanditiis corporis quaerat aperiam maiores nam, fugiat optio delectus doloremque minus laudantium explicabo numquam voluptatem.</p>
+                </a>
+            </td>
+            <td>Rs. 120</td>
+            <td>
+                <input type="number" name="Quantity" class="quantity-input" id="quantity-input">
+            </td>
+            <td>Rs. 360</td>
+            <td>
+                <button class="icon-round-btn red-btn">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </td>
+        </tr>
+    `;
+}
+cartTable.innerHTML = cart_item_content;
