@@ -16,6 +16,7 @@ async function fetch_product(item) {
 // Call the function and wait for it to finish
 (async () => {
     await fetch_product();
+    generate_cart_list();
     console.log('Products after fetch:', products);
 })();
 
@@ -75,32 +76,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Start to Display cart items in table
+function generate_cart_list(){
 
-for(i = 0; i < fetch_cart_product.length; i++) {
-    cart_item_content+= `
-        <tr>
-            <td>
-                <a href="#">
-                    <img src="./images/blog-1.jpg" class="product-img" />
-                </a>
-            </td>
-            <td>
-                <a href="#">
-                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam expedita odit dolore quia cumque nisi blanditiis corporis quaerat aperiam maiores nam, fugiat optio delectus doloremque minus laudantium explicabo numquam voluptatem.</p>
-                </a>
-            </td>
-            <td>Rs. 120</td>
-            <td>
-                <input type="number" name="Quantity" class="quantity-input" id="quantity-input">
-            </td>
-            <td>Rs. 360</td>
-            <td>
-                <button class="icon-round-btn red-btn">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                </button>
-            </td>
-        </tr>
-    `;
+    let cart_item_content = '';
+
+    fetch_cart_product.forEach(cartItem => {
+        const product = products.find(p => p.id === cartItem.id);
+        if (!product) return;
+
+        cart_item_content += `
+            <tr>
+                <td>
+                    <a onclick="display_product(${product.id})">
+                        <img src="${product.image}" class="product-img" width="50"/>
+                    </a>
+                </td>
+                <td>
+                    <a onclick="display_product(${product.id})">
+                        <h4>${product.title}</h4>
+                        <p>${product.description.substring(0, 100)}...</p>
+                    </a>
+                </td>
+                <td>Rs. ${product.price.toFixed(2)}</td>
+                <td>
+                    <input type="number" name="Quantity" class="quantity-input" value="${cartItem.quantity}" min="1">
+                </td>
+                <td>Rs. ${(cartItem.quantity * product.price).toFixed(2)}</td>
+                <td>
+                    <button class="icon-round-btn red-btn" onclick="remove_from_cart(${cartItem.id})">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+    cartTable.innerHTML = cart_item_content;
 }
-cartTable.innerHTML = cart_item_content;
+generate_cart_list();
