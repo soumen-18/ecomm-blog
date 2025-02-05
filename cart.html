@@ -28,24 +28,26 @@
             <div class="row">
                 <div class="col-md-8">
                     <h3 class="sectionHeading mb-3">My Cart</h3>
-                    <table id="cart-product-list"></table>
+                    <div class="cart-left">
+                        <form id="cart-list-form">
+                            <div class="spinner-border text-info big mt-5 mb-5 ml-auto mr-auto" id="cart-loader" style="display: none;"></div>
+                            <table id="cart-product-list"></table>
+                            <div class="justify-content-end mt-4" id="cart-update-wrap" style="display: none;">
+                                <button type="submit" class="cmnBtn" id="cart-update-btn" style="min-width: 200px;">Update</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <h3 class="sectionHeading mb-3">Summary</h3>
-                    <ul class="product-summary">
-                        <li>
-                            <h4>Subtotal: </h4>
-                            <p>Rs. 99</p>
-                        </li>
-                        <li>
-                            <h4>Discount: </h4>
-                            <p>Rs. 10</p>
-                        </li>
-                        <li class="total-price">
-                            <h4>Total: </h4>
-                            <p>Rs. 89</p>
-                        </li>
-                    </ul>
+                    <div class="cart-right">
+                        <h3 class="sectionHeading mb-3">Summary</h3>
+                        <form id="summary_form">
+                            <ul class="product-summary" id="product-summary">
+                                <div class="spinner-border text-info big mt-5 mb-5 ml-auto mr-auto"></div>
+                            </ul>
+                            <!-- <button type="submit" class="cmnBtn mt-4" id="cart-submit-btn" style="min-width: 100%;">Go to Checkout</button> -->
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
