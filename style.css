@@ -677,6 +677,14 @@ a.cmnBtn {
     right: -20px;
 }
 
+.checkout-page .form-group {
+    margin-bottom: 20px;
+}
+
+.checkout-page .form-control {
+    height: auto;
+    padding: 10px 15px;
+}
 
 
 
