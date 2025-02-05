@@ -33,4 +33,5 @@ function display_product(fetch_id) {
 }
 function add_to_cart(productId) {
     handleAddToCart(productId);
+    update_cart_counter();
 }
