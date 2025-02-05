@@ -138,9 +138,11 @@ async function fetch_categories() {
 
         product.forEach(item => {
             const encodedCategory = encodeURIComponent(item);
-            cat_element.innerHTML+= `
-                <a class="dropdown-item" href="#" onclick="openCategory(\`${item}\`)">${item}</a>
-            `
+            if(cat_element) {
+                cat_element.innerHTML+= `
+                    <a class="dropdown-item" href="#" onclick="openCategory(\`${item}\`)">${item}</a>
+                `;
+            }
         });
     } 
     catch(error) {
