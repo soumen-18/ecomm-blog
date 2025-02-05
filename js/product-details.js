@@ -58,7 +58,7 @@ function display_product_details(product) {
                 <h2>${product.title}</h2>
 
                 <div class="detailsBtnWrap">
-                    <button class="cmnBtn">
+                    <button class="cmnBtn" onclick="add_to_cart(${product.id})">
                         Add to Cart <span class="spinner-border"></span>
                     </button>
                     <button class="cmnBtn greyBtn ml-2">Buy Now</button>
