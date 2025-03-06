@@ -1,3 +1,4 @@
+// const submit_cart_product = JSON.parse(localStorage.getItem('cart')) || [];
 const steps = document.querySelectorAll('.checkout-stepper');
 const card_details = document.getElementById('card-details');
 const prev_btn = document.getElementById('prev-btn');
@@ -7,6 +8,8 @@ const card_payment = document.getElementById('card-pay');
 const first_step_required_field = document.querySelectorAll("#first-step input, #first-step textarea");
 const payment_options = document.querySelectorAll("#payment-options input");
 const card_required_fields = document.querySelectorAll("#card-details input");
+let submitted_details;
+
 
 var currentStep = 0;
 
@@ -49,10 +52,11 @@ function validateStep() {
     return true;
 }
 
+// Saved User details
 function saveUserDetails() {
     let selectedPayment = document.querySelector('input[name="payment-option"]:checked')?.value || null;
 
-    let newUserDetails = {
+    let newAddress = [{
         name: document.getElementById('firstname').value + ' ' + document.getElementById('lastname').value,
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
@@ -67,14 +71,31 @@ function saveUserDetails() {
                 exp_date: document.getElementById('expiry-date').value
             } : null
         }
-    };
+    }];
 
-    let storedUserDetails = JSON.parse(localStorage.getItem('userDetails')) || [];
+    let storedAddress = JSON.parse(localStorage.getItem('address')) || [];
 
-    storedUserDetails.push(newUserDetails);
+    submitted_details = newAddress;
 
-    localStorage.setItem('userDetails', JSON.stringify(storedUserDetails));
-    console.log(newUserDetails)
+    storedAddress.push(...newAddress);
+
+    localStorage.setItem('address', JSON.stringify(storedAddress));
+    console.log(JSON.parse(localStorage.getItem('address')))
+}
+
+// Submit all details
+function submitData() {
+    let order = [];
+    let newOrder = { ...submitted_details[0], price: save_total_price, order_items: fetch_final_product };
+    order.push(newOrder);
+
+    localStorage.setItem('final_order', JSON.stringify(order));
+
+    localStorage.setItem('cart', JSON.stringify([]));
+
+    setTimeout(function() {
+        window.location.href = `${absolutePath}/order.html`;
+    }, 3000);
 }
 
 // Next button functionality
@@ -88,6 +109,7 @@ next_btn.addEventListener('click', function(e) {
         showStep(currentStep);
     } else {
         saveUserDetails();
+        submitData();
         alert("Form submitted successfully!");
     }
 });

@@ -4,8 +4,8 @@ const products_list = [];
 
 const checkout_table = document.getElementById('checkout-product-list');
 const checkout_loader = document.getElementById('checkout-loader');
-// const cart_update_box = document.getElementById('cart-update-wrap');
 const checkout_list_form = document.getElementById('checkout-list-form')
+let save_total_price;
 
 let checkout_item_content = '';
 
@@ -157,6 +157,8 @@ function product_summary() {
     }
 
     total_price = subtotal_price - discount_price;
+    
+    save_total_price = total_price.toFixed(2);
 
     summary_wrapper.innerHTML = `
         <li>
