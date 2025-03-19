@@ -15,6 +15,15 @@ let allProducts = [];
     }
 })();
 
+// Start to Get Current Date & Time
+const fetch_date = new Date();
+let fetch_day = fetch_date.getDate();
+let fetch_month = fetch_date.getMonth() + 1;
+let fetch_year = fetch_date.getFullYear();
+
+let currentDate = `${fetch_day}-${fetch_month}-${fetch_year}`;
+// End to Get Current Date & Time
+
 // Start to Fetch all products from FakeStore API
 async function fetchAllProducts() {
     try {
