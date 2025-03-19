@@ -57,6 +57,8 @@ function saveUserDetails() {
     let selectedPayment = document.querySelector('input[name="payment-option"]:checked')?.value || null;
 
     let newAddress = [{
+        date: currentDate, //fetch current date from index.js
+        order_id: Math.floor(1000000000 + Math.random() * 9000000000),
         name: document.getElementById('firstname').value + ' ' + document.getElementById('lastname').value,
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
