@@ -28,14 +28,25 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="sectionHeading mb-3">My Orders</h3>
-                    <div class="cart-left">
-                        <form id="cart-list-form">
-                            <div class="spinner-border text-info big mt-5 mb-5 ml-auto mr-auto" id="cart-loader" style="display: none;"></div>
-                            <table id="cart-product-list"></table>
-                            <div class="justify-content-end mt-4" id="cart-update-wrap" style="display: none;">
-                                <button type="submit" class="cmnBtn" id="cart-update-btn" style="min-width: 200px;">Update</button>
-                            </div>
-                        </form>
+                    <div class="whiteBox">
+                        <table>
+                            <tr>
+                                <th>Order ID:</th>
+                                <th>Name:</th>
+                                <th>Email:</th>
+                                <th>Phone:</th>
+                                <th>Address:</th>
+                                <th>Pin Code:</th>
+                            </tr>
+                            <tr>
+                                <td>7771564743</td>
+                                <td>Soumen Samanta</td>
+                                <td>soumen@gmail.com</td>
+                                <td>878777888</td>
+                                <td>Kolkata</td>
+                                <td>123456</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -50,6 +61,7 @@
     <script src="./js/index.js" type="text/javascript"></script>
     <script src="./js/header_footer.js" type="text/javascript"></script>
     <script src="./js/cart.js" type="text/javascript"></script>
+    <script src="./js/orders.js" type="text/javascript"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
