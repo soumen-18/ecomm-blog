@@ -486,6 +486,13 @@ a.cmnBtn {
     margin: 0 3px;
 }
 
+.whiteBox {
+    background: #fff;
+    box-shadow: 0 0 15px #00000014;
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .dropdown-menu .dropdown-item {
     text-transform: capitalize;
 }
@@ -511,7 +518,7 @@ a.cmnBtn {
 .cart-left {
     background: #fff;
     box-shadow: 0 0 15px #00000014;
-    padding: 21px;
+    padding: 20px;
     border-radius: 10px;
 }
 
