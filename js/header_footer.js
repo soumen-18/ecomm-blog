@@ -59,6 +59,7 @@ const inner_header = `
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="${absolutePath}/profile.html" class="dropdown-item">Profile</a>
                     <a href="${absolutePath}/cart.html" class="dropdown-item">Cart</a>
+                    <a href="${absolutePath}/order.html" class="dropdown-item">Orders</a>
                     <a class="dropdown-item" onclick='logout_func()'>Logout</a>
                 </div>
             </div>

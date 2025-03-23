@@ -693,8 +693,49 @@ a.cmnBtn {
     padding: 10px 15px;
 }
 
+.cmn-table {
+    width: 100%;
+}
 
+.cmn-table th, .cmn-table td {
+    border: 1px solid #dedede;
+    padding: 15px;
+    vertical-align: top;
+}
 
+.list-style {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-style li:not(:last-child) {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dedede;
+}
+
+.order-page .cmn-table td {
+    font-size: 14px;
+}
+
+.order-page .cmn-table td strong {
+    font-weight: 600;
+}
+
+.order-page .cmn-table td:first-child {
+    width: 100px;
+}
+
+.order-page .cmn-table tr:nth-child(even) {
+    background: #fff3f2;
+}
+
+.order-page .cmn-table .product-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 
 /* ================  start responsive ================ */

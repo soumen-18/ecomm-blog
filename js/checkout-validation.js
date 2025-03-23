@@ -87,7 +87,7 @@ function saveUserDetails() {
 
 // Submit all details
 function submitData() {
-    let order = [];
+    let order = JSON.parse(localStorage.getItem('final_order')) || [];
     let newOrder = { ...submitted_details[0], price: save_total_price, order_items: fetch_final_product };
     order.push(newOrder);
 

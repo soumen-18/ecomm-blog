@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="cart-page">
+<body class="order-page">
 
     <!-- start header -->
     <nav class="navbar navbar-expand-md" id="inner_navbar"></nav>
@@ -23,29 +23,29 @@
     <!-- end header -->
 
     <!-- start section -->
-    <section class="sectionGap">
+    <section class="sectionGap" style="padding-top: 40px !important;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="sectionHeading mb-3">My Orders</h3>
-                    <div class="whiteBox">
-                        <table>
-                            <tr>
-                                <th>Order ID:</th>
-                                <th>Name:</th>
-                                <th>Email:</th>
-                                <th>Phone:</th>
-                                <th>Address:</th>
-                                <th>Pin Code:</th>
-                            </tr>
-                            <tr>
-                                <td>7771564743</td>
-                                <td>Soumen Samanta</td>
-                                <td>soumen@gmail.com</td>
-                                <td>878777888</td>
-                                <td>Kolkata</td>
-                                <td>123456</td>
-                            </tr>
+                    <div id="order-product-list">
+                        <table class="cmn-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Order ID:</th>
+                                    <th>Products</th>
+                                    <th>Shipping Details</th>
+                                    <th>Payment Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-list">
+                                <tr>
+                                    <td colspan="5" style="text-align: center;">
+                                        <div class="spinner-border text-info big mt-5 mb-5 ml-auto mr-auto"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>

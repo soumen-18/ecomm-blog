@@ -153,7 +153,6 @@ function remove_item(id){
         product_summary();
     }
 }
-
 // Start update quantity in cart
 
 if(cart_list_form){

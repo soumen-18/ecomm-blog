@@ -33,6 +33,10 @@ async function fetchAllProducts() {
         console.error('Error fetching products:', error);
     }
 }
+(async () => {
+    await fetchAllProducts();
+})();
+
 // End to Fetch all products from FakeStore API
 
 function display_product(fetch_id) {
