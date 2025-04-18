@@ -30,12 +30,14 @@
                 <form id="loginForm" onsubmit="login_func(event)">
                     <!-- Email -->
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        <p class="field-error email-error"></p>
                     </div>
 
                     <!-- Password -->
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                        <p class="field-error password-error"></p>
                     </div>
 
                   <button class="cmnBtn" type="submit" id="login_submit">Submit <span class="spinner-border"></span></button>
@@ -57,6 +59,7 @@
     <script src="./js/header_footer.js" type="text/javascript"></script>
     <script src="./js/user.js" type="text/javascript"></script>
     <script src="./js/cart.js" type="text/javascript"></script>
+    <script src="./js/field-validation.js" type="text/javascript"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
