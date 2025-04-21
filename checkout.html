@@ -74,16 +74,20 @@
                                 <div class="col-md-12 form-group d-none" id="card-details">
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            <input type="text" class="form-control" id="card-holder-name" placeholder="Card holder name">
+                                            <input type="text" class="form-control" name="cardName" id="card-holder-name" placeholder="Card holder name">
+                                            <p class="field-error cardName-error"></p>
                                         </div>
                                         <div class="col-md-6 form-group">
-                                            <input type="text" class="form-control" id="card-number" placeholder="Card number">
+                                            <input type="text" class="form-control" name="cardNumber" id="card-number" placeholder="Card number">
+                                            <p class="field-error cardNumber-error"></p>
                                         </div>
                                         <div class="col-md-6 form-group">
-                                            <input type="number" class="form-control" id="cvv" placeholder="CVV">
+                                            <input type="text" class="form-control" name="cardExpiry" id="expiry-date" placeholder="Expiry date">
+                                            <p class="field-error cardExpiry-error"></p>
                                         </div>
                                         <div class="col-md-6 form-group">
-                                            <input type="text" class="form-control" id="expiry-date" placeholder="Expiry date">
+                                            <input type="number" class="form-control" name="cardCVV" id="cvv" placeholder="CVV">
+                                            <p class="field-error cardCVV-error"></p>
                                         </div>
                                     </div>
                                 </div>
