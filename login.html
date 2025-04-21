@@ -30,13 +30,16 @@
                 <form id="loginForm" onsubmit="login_func(event)">
                     <!-- Email -->
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
                         <p class="field-error email-error"></p>
                     </div>
 
                     <!-- Password -->
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                        <div class="password-box">
+                            <input type="password" class="form-control password-field" id="password" name="password" placeholder="Enter password">
+                            <button class="show-pass"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                        </div>
                         <p class="field-error password-error"></p>
                     </div>
 
