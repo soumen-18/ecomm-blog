@@ -160,6 +160,25 @@ const flags = {
         }
       });
     }
-  });
+});
 
   
+
+// **** Start password show hide functionality
+
+var password_button = document.querySelector('.show-pass');
+var password_field = document.querySelector('.password-field');
+
+password_button.addEventListener('click', function(e) {
+  e.preventDefault();
+  const currentType = password_field.getAttribute('type');
+  if(currentType === 'password'){
+    password_field.setAttribute('type', 'text');
+    password_button.innerHTML = '<i class="fa fa-eye-slash"></i>';
+  } else {
+    password_field.setAttribute('type', 'password');
+    password_button.innerHTML = '<i class="fa fa-eye"></i>';
+  }
+})
+
+// **** End password show hide functionality
