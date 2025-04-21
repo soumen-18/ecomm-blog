@@ -16,19 +16,25 @@ const flags = {
     firstName: {
       selector: 'input[name="firstName"]',
       errorSelector: '.firstName-error',
-      regex: /^[A-Za-z]{2,}$/,
       errorMessages: {
         empty: 'First name is required',
-        invalid: 'Enter a valid first name'
+      },
+      customValidation: (value) => {
+        if(/[0-9]/.test(value)) return "Name should not contain numbers";
+        if (value.length < 3) return 'Enter a valid first name';
+        return null;
       }
     },
     lastName: {
       selector: 'input[name="lastName"]',
       errorSelector: '.lastName-error',
-      regex: /^[A-Za-z]{2,}$/,
       errorMessages: {
         empty: 'Last name is required',
-        invalid: 'Enter a valid last name'
+      },
+      customValidation: (value) => {
+        if(/[0-9]/.test(value)) return "Name should not contain numbers";
+        if (value.length < 2) return 'Enter a valid last name';
+        return null;
       }
     },
     email: {
@@ -74,7 +80,7 @@ const flags = {
       }
     },
     address: {
-      selector: 'input[name="address"]',
+      selector: 'textarea[name="address"]',
       errorSelector: '.address-error',
       regex: /^.{5,}$/,
       errorMessages: {
@@ -98,15 +104,15 @@ const flags = {
       errorMessages: {
         empty: 'Card number is required',
         invalid: 'Card number must be 16 digits'
-      }
+      },
     },
     cardExpiry: {
       selector: 'input[name="cardExpiry"]',
       errorSelector: '.cardExpiry-error',
-      regex: /^(0[1-9]|1[0-2])\/\d{2}$/, // MM/YY format
+      regex: /^(0[1-9]|1[0-2])\/\d{2}$/,
       errorMessages: {
         empty: 'Expiry date is required',
-        invalid: 'Use MM/YY format'
+        invalid: 'Use MM/YY format',
       }
     },
     cardCVV: {
@@ -133,10 +139,12 @@ const flags = {
         if (value === "") {
           error.innerText = config.errorMessages.empty;
           flags[key] = false;
-        } else if (!config.regex.test(value)) {
+        } 
+        else if (config.regex && !config.regex.test(value)) {
           error.innerText = config.errorMessages.invalid;
           flags[key] = false;
-        } else if (config.customValidation) {
+        } 
+        else if (config.customValidation) {
           const customError = config.customValidation(value);
           if (customError) {
             error.innerText = customError;
@@ -148,8 +156,10 @@ const flags = {
         } else {
           error.innerText = '';
           flags[key] = true;
+          console.log('flags', flags);
         }
       });
     }
   });
+
   
