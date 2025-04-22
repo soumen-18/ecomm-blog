@@ -1,23 +1,23 @@
 
-const fetch_cart_product = JSON.parse(localStorage.getItem('cart')) || [];
-const products = [];
+const fetch_final_product = JSON.parse(localStorage.getItem('cart')) || [];
+const products_list = [];
 
-const cartTable = document.getElementById('cart-product-list');
-const loader = document.getElementById('cart-loader');
-const cart_update_box = document.getElementById('cart-update-wrap');
-const cart_list_form = document.getElementById('cart-list-form')
+const checkout_table = document.getElementById('checkout-product-list');
+const checkout_loader = document.getElementById('checkout-loader');
+const checkout_list_form = document.getElementById('checkout-list-form')
+let save_total_price;
 
-let cart_item_content = '';
+let checkout_item_content = '';
 
 async function fetch_product(item) {
     try{
-        loader ? loader.style.display = 'block' : null;
+        checkout_loader ? checkout_loader.style.display = 'block' : null;
 
         const fetchItems = await fetch("https://fakestoreapi.com/products");
         const items = await fetchItems.json();
-        products.push(...items);
+        products_list.push(...items);
 
-        loader ? loader.style.display = 'none' : null;
+        checkout_loader ? checkout_loader.style.display = 'none' : null;
         cart_update_box ? cart_update_box.style.display = 'flex' : null;
     } catch(error) {
         console.error('Error fetching products:', error)
@@ -30,55 +30,6 @@ async function fetch_product(item) {
     product_summary();
 })();
 
-
-// Start - add to cart product functionality
-function add_to_cart(product_id) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Check if the product is already in the cart
-    const productInCart = cart.find(item => item.id === product_id);
-
-    if (productInCart) {
-        // Increment quantity if product already exists
-        productInCart.quantity += 1;
-    } else {
-        // Add new product to cart
-        fetch(`https://fakestoreapi.com/products/${product_id}`)
-            .then(response => response.json())
-            .then(product => {
-                cart.push({
-                    id: product.id,
-                    title: product.title,
-                    price: product.price,
-                    quantity: 1,
-                });
-
-                // Save the updated cart to localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-
-                // Optionally update the cart UI (e.g., update cart counter)
-                update_cart_counter();
-            })
-            .catch(error => console.error('Error adding product to cart:', error));
-    }
-
-    // Save the updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-    update_cart_counter();
-}
-
-// Update cart counter in header
-function update_cart_counter() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-
-    // Ensure the cart counter element exists before updating
-    const cartCounterElement = document.querySelector('.headerCart span');
-    if (cartCounterElement) {
-        cartCounterElement.innerText = totalItems;
-    }
-}
-
 // Call update_cart_counter on page load
 document.addEventListener('DOMContentLoaded', () => {
     update_cart_counter();
@@ -87,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // Start to Display cart items in table
 function generate_cart_list(){
 
-    let cart_item_content = '';
+    let checkout_item_content = '';
 
-    if(fetch_cart_product.length < 1) {
-        cart_item_content += `
+    if(fetch_final_product.length < 1) {
+        checkout_item_content += `
             <tr class="not-found">
                 <td colspan="6" style="padding: 50px;">
                     <p>Product not available in your Cart</p>
@@ -100,13 +51,13 @@ function generate_cart_list(){
         cart_update_box ? cart_update_box.style.display = 'none' : null;
     }
 
-    fetch_cart_product.forEach(cartItem => {
-        const product = products.find(p => p.id === cartItem.id);
+    fetch_final_product.forEach(cartItem => {
+        const product = products_list.find(p => p.id === cartItem.id);
         if (!product) return;
         
         const total = product.price.toFixed(2) * cartItem.quantity;
 
-        cart_item_content += `
+        checkout_item_content += `
             <tr>
                 <td>
                     <a onclick="display_product(${product.id})" class="cart-img-wrap">
@@ -117,12 +68,8 @@ function generate_cart_list(){
                     <a onclick="display_product(${product.id})">
                         <h4>${product.title}</h4>
                     </a>
+                    <p>Rs. ${product.price.toFixed(2)} * ${cartItem.quantity}</p>
                 </td>
-                <td>Rs. ${product.price.toFixed(2)}</td>
-                <td>
-                    <input type="number" name="Quantity" class="quantity-input" data-product-id=${cartItem.id} value="${cartItem.quantity}" min="1">
-                </td>
-                <td>Rs. ${total.toFixed(2)}</td>
                 <td>
                     <button class="icon-round-btn red-btn" onclick="remove_item(${cartItem.id})">
                         <i class="fa fa-trash-o"></i>
@@ -136,27 +83,28 @@ function generate_cart_list(){
             </tr>
         `;
     });
-    if(cartTable) {
-        cartTable.innerHTML = cart_item_content;
+    if(checkout_table) {
+        checkout_table.innerHTML = checkout_item_content;
     }
 }
 generate_cart_list();
 
 // Start to remove product form cart list
 function remove_item(id){
-    const index = fetch_cart_product.findIndex(item => item.id === id);
-    fetch_cart_product.splice(index, 1);
+    const index = fetch_final_product.findIndex(item => item.id === id);
+    fetch_final_product.splice(index, 1);
     if(index !== -1) {
-        localStorage.setItem('cart', JSON.stringify(fetch_cart_product));
+        localStorage.setItem('cart', JSON.stringify(fetch_final_product));
         generate_cart_list();
         update_cart_counter();
         product_summary();
     }
 }
+
 // Start update quantity in cart
 
-if(cart_list_form){
-    cart_list_form.addEventListener('submit', function(event) {
+if(checkout_list_form){
+    checkout_list_form.addEventListener('submit', function(event) {
         event.preventDefault();
         update_cart_quantity();
         product_summary();
@@ -183,8 +131,8 @@ function update_cart_quantity() {
     
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    fetch_cart_product.length = 0; // Clear array without breaking old one (referrences)
-    fetch_cart_product.push(...cart); 
+    fetch_final_product.length = 0; // Clear array without breaking old one (referrences)
+    fetch_final_product.push(...cart); 
     
     generate_cart_list();
     update_cart_counter();
@@ -201,14 +149,16 @@ function product_summary() {
 
     if (!summary_wrapper) return;
 
-    for (let i = 0; i < fetch_cart_product.length; i++) {
-        let price = parseFloat(fetch_cart_product[i].price) || 0;
-        let quantity = parseInt(fetch_cart_product[i].quantity) || 1;
+    for (let i = 0; i < fetch_final_product.length; i++) {
+        let price = parseFloat(fetch_final_product[i].price) || 0;
+        let quantity = parseInt(fetch_final_product[i].quantity) || 1;
 
         subtotal_price += price * quantity;
     }
 
     total_price = subtotal_price - discount_price;
+    
+    save_total_price = total_price.toFixed(2);
 
     summary_wrapper.innerHTML = `
         <li>
