@@ -1,0 +1,10 @@
+Task:
+1) All field submit validation on login, register, profile, checkout and others all form pages
+2) Make a Admin page for order deliver status confirmation
+3) Check if user not login then it should redirect to home page from any of the others pages
+4) Add to cart functionality shoud take 1 second for added to cart. add a loader on add to cart button
+5) Buy Now button functionality
+6) Add a thank you page after placed a order and on that page add see your order button that should redirect to the order page
+7) Add Search bar to search products.
+8) Add filter button to filter products on category page
+9) Dark mode toggle
