@@ -36,31 +36,36 @@
                         <!-- First name -->
                         <div class="col-md-6 form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" id="firstname" placeholder="Enter first name" readonly>
+                            <input type="text" class="form-control" id="firstname" name="firstName" placeholder="Enter first name" readonly>
+                            <p class="field-error firstName-error"></p>
                         </div>
                         
                         <!-- Last name -->
                         <div class="col-md-6 form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="Enter last name" readonly>
+                            <input type="text" class="form-control" id="lastname" name="lastName" placeholder="Enter last name" readonly>
+                            <p class="field-error lastName-error"></p>
                         </div>
 
                         <!-- Email -->
                         <div class="col-md-12 form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" readonly>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" readonly>
+                            <p class="field-error email-error"></p>
                         </div>
                         
                         <!-- phone -->
                         <div class="col-md-6 form-group">
                             <label>Phone</label>
-                            <input type="number" class="form-control" id="phone" placeholder="Enter phone" readonly>
+                            <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter phone" readonly>
+                            <p class="field-error phone-error"></p>
                         </div>
 
                         <!-- Password -->
                         <div class="col-md-6 form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter password" readonly>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" readonly>
+                            <p class="field-error password-error"></p>
                         </div>
 
                         <div class="col-md-12" id="profileSubmitWrap"></div>
@@ -79,6 +84,7 @@
     <script src="./js/header_footer.js" type="text/javascript"></script>
     <script src="./js/profile.js" type="text/javascript"></script>
     <script src="./js/cart.js" type="text/javascript"></script>
+    <script src="./js/field-validation.js" type="text/javascript"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

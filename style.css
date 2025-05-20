@@ -486,6 +486,13 @@ a.cmnBtn {
     margin: 0 3px;
 }
 
+.whiteBox {
+    background: #fff;
+    box-shadow: 0 0 15px #00000014;
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .dropdown-menu .dropdown-item {
     text-transform: capitalize;
 }
@@ -511,7 +518,7 @@ a.cmnBtn {
 .cart-left {
     background: #fff;
     box-shadow: 0 0 15px #00000014;
-    padding: 21px;
+    padding: 20px;
     border-radius: 10px;
 }
 
@@ -686,8 +693,120 @@ a.cmnBtn {
     padding: 10px 15px;
 }
 
+.cmn-table {
+    width: 100%;
+}
 
+.cmn-table th, .cmn-table td {
+    border: 1px solid #dedede;
+    padding: 15px;
+    vertical-align: top;
+}
 
+.list-style {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-style li:not(:last-child) {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dedede;
+}
+
+.order-page .cmn-table td {
+    font-size: 14px;
+}
+
+.order-page .cmn-table td strong {
+    font-weight: 600;
+}
+
+.order-page .cmn-table td:first-child {
+    width: 100px;
+}
+
+.order-page .cmn-table tr:nth-child(even) {
+    background: #fff3f2;
+}
+
+.order-page .cmn-table .product-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.field-error {
+    margin: 8px 0 0 0;
+    color: #dc3545;
+    font-size: 15px;
+}
+
+input[type=number]:not(.quantity-input)::-webkit-inner-spin-button, 
+input[type=number]:not(.quantity-input)::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.password-box {
+    position: relative;
+}
+.password-box input {
+    padding-right: 40px;
+}
+.password-box .show-pass {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    padding: 0 15px;
+}
+
+.cmn-table th, .cmn-table td {
+    border: 1px solid #dedede;
+    padding: 15px;
+    vertical-align: top;
+}
+
+.list-style {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-style li:not(:last-child) {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dedede;
+}
+
+.order-page .cmn-table td {
+    font-size: 14px;
+}
+
+.order-page .cmn-table td strong {
+    font-weight: 600;
+}
+
+.order-page .cmn-table td:first-child {
+    width: 100px;
+}
+
+.order-page .cmn-table tr:nth-child(even) {
+    background: #fff3f2;
+}
+
+.order-page .cmn-table .product-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 
 /* ================  start responsive ================ */

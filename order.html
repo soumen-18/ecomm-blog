@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Ecommerce - Login</title>
+    <title>Ecommerce - My Order</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -15,39 +15,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="order-page">
 
     <!-- start header -->
-    <nav class="navbar navbar-expand-md" id="outer_navbar"></nav>
+    <nav class="navbar navbar-expand-md" id="inner_navbar"></nav>
+
     <!-- end header -->
 
     <!-- start section -->
-    <section class="sectionGap">
+    <section class="sectionGap" style="padding-top: 40px !important;">
         <div class="container">
-            <div class="formMain">
-                <h2 class="sectionHeading">Login</h2>
-
-                <form id="loginForm" onsubmit="login_func(event)">
-                    <!-- Email -->
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
-                        <p class="field-error email-error"></p>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="sectionHeading mb-3">My Orders</h3>
+                    <div id="order-product-list">
+                        <table class="cmn-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Order ID:</th>
+                                    <th>Products</th>
+                                    <th>Shipping Details</th>
+                                    <th>Payment Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-list">
+                                <tr>
+                                    <td colspan="5" style="text-align: center;">
+                                        <div class="spinner-border text-info big mt-5 mb-5 ml-auto mr-auto"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <!-- Password -->
-                    <div class="form-group">
-                        <div class="password-box">
-                            <input type="password" class="form-control password-field" id="password" placeholder="Enter password">
-                            <button class="show-pass"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-
-                  <button class="cmnBtn" type="submit" id="login_submit">Submit <span class="spinner-border"></span></button>
-
-                  <p id="login_error" class="error_msg"></p>
-
-                  <p>Don't have account? <a href="./register.html">Register</a></p>
-                </form>
+                </div>
             </div>
         </div>
     </section>
@@ -59,9 +60,8 @@
 
     <script src="./js/index.js" type="text/javascript"></script>
     <script src="./js/header_footer.js" type="text/javascript"></script>
-    <script src="./js/user.js" type="text/javascript"></script>
     <script src="./js/cart.js" type="text/javascript"></script>
-    <script src="./js/field-validation.js" type="text/javascript"></script>
+    <script src="./js/orders.js" type="text/javascript"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

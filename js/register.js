@@ -3,6 +3,11 @@ let fetch_local_user = JSON.parse(localStorage.getItem('users'))  || [];
 const error_class = 'error_msg';
 const success_class = 'success_msg';
 
+// const register_flags = JSON.parse(sessionStorage.getItem('forms_field_flags'));
+
+// console.log('register_flags', register_flags)
+
+
 const submitButton = document.querySelector("#registerForm button[type='submit']");
 
 // Only fetch and store users if localStorage is empty
@@ -34,6 +39,12 @@ function loadingButtonState(button, isLoading, btnLoading = 'loading') {
         button.disabled = false;
     }
 }
+
+// function checking_field_valid() {
+//     if(register_flags) {
+
+//     }
+// }
 
 async function register_func(e) {
     e.preventDefault();

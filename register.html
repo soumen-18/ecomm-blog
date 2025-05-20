@@ -32,27 +32,35 @@
 
                     <!-- First name -->
                     <div class="form-group">
-                        <input type="text" class="form-control" id="firstname" placeholder="Enter first name">
+                        <input type="text" class="form-control" id="firstname" name="firstName" placeholder="Enter first name">
+                        <p class="field-error firstName-error"></p>
                     </div>
                     
                     <!-- Last name -->
                     <div class="form-group">
-                        <input type="text" class="form-control" id="lastname" placeholder="Enter last name">
+                        <input type="text" class="form-control" id="lastname" name="lastName" placeholder="Enter last name">
+                        <p class="field-error lastName-error"></p>
                     </div>
 
                     <!-- Email -->
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                        <p class="field-error email-error"></p>
                     </div>
                     
                     <!-- phone -->
                     <div class="form-group">
-                        <input type="number" class="form-control" id="phone" placeholder="Enter phone">
+                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                        <p class="field-error phone-error"></p>
                     </div>
 
                     <!-- Password -->
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                        <div class="password-box">
+                            <input type="password" class="form-control password-field" id="password" name="password" placeholder="Enter password">
+                            <button class="show-pass"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                        </div>
+                        <p class="field-error password-error"></p>
                     </div>
 
                     <button class="cmnBtn" type="submit">Submit <span class="spinner-border"></span></button>
@@ -72,6 +80,7 @@
 
     <script src="./js/index.js" type="text/javascript"></script>
     <script src="./js/header_footer.js" type="text/javascript"></script>
+    <script src="./js/field-validation.js" type="text/javascript"></script>
     <script src="./js/register.js" type="text/javascript"></script>
     <script src="./js/cart.js" type="text/javascript"></script>
 
