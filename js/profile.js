@@ -6,6 +6,7 @@ const lastname = document.getElementById("lastname");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const password = document.getElementById("password");
+let password_eye_wrap = document.getElementById("profile-pass-eye");
 
 // start showing data in input
 firstname.value = getUserDetails[getDetails].name.firstname;
@@ -36,6 +37,24 @@ document
       input.removeAttribute("readonly");
     });
 
+    // Start Rendering password vidibility buttons
+    password_eye_wrap.innerHTML = `
+      <button class="show-pass"><i class="fa fa-eye" aria-hidden="true"></i></button>
+    `;
+    // End Rendering password vidibility buttons
+
+    document.querySelector("#profile-pass-eye .show-pass").addEventListener("click", function (e) {
+      e.preventDefault();
+      const currentType = document.getElementById("password").getAttribute('type');
+      if(currentType === 'password'){
+        password.setAttribute('type', 'text');
+        this.innerHTML = '<i class="fa fa-eye-slash"></i>';
+      } else {
+        password.setAttribute('type', 'password');
+        this.innerHTML = '<i class="fa fa-eye"></i>';
+      }
+    })
+
     // rendering submit button on edit button click
     document.getElementById("profileSubmitWrap").innerHTML = `
         <button class="cmnBtn" type="submit" id="profileSubmitBtn">Submit <span class="spinner-border"></span></button>
@@ -57,6 +76,9 @@ document
         input.setAttribute("readonly", true);
       });
 
+      document.getElementById("password").setAttribute('type', 'password');
+      
+      password_eye_wrap.innerHTML = "";
       document.getElementById("profileSubmitWrap").innerHTML = " ";
     });
     // End profile cancel button functionality
