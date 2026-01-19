@@ -98,6 +98,10 @@ function generate_cart_list(){
             </tr>
         `;
         cart_update_box ? cart_update_box.style.display = 'none' : null;
+        
+        // Redirecting to shop page if product is not available on cart
+        document.getElementById("cart-submit-btn").innerText = 'Go to Shop';
+        document.getElementById("cart-submit-btn").setAttribute('href', './index.html');
     }
 
     fetch_cart_product.forEach(cartItem => {
